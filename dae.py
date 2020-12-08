@@ -32,3 +32,24 @@ class DenoiseAutoencoder(keras.Model):
         encode = self.encoder(inputs)
         decode = self.decoder(encode)
         return decode
+
+
+def scale(image):
+    image = image.astype(np.float32)
+    return (image - 127.5) / 127.5
+
+
+(x_train, _), (x_test, _) = fashion_mnist.load_data()
+x_train = scale(x_train)[..., np.newaxis]
+x_test = scale(x_test)[..., np.newaxis]
+
+noise_factor = 0.2
+x_train_noisy = x_train + noise_factor * tf.random.normal(shape=x_train.shape)
+x_test_noisy = x_test + noise_factor * tf.random.normal(shape=x_test.shape)
+
+x_train_noisy = tf.clip_by_value(x_train_noisy, clip_value_min=-1., clip_value_max=1.)
+x_test_noisy = tf.clip_by_value(x_test_noisy, clip_value_min=-1., clip_value_max=1.)
+
+model = DenoiseAutoencoder()
+model.compile(optimizer=tfa.optimizers.AdamW(learning_rate=1e-4, weight_decay=5e-5), loss=keras.losses.MeanSquaredError())
+model.fit(x_train_noisy, x_train, epochs=10, shuffle=True, validation_data=(x_test_noisy, x_test))

@@ -44,5 +44,5 @@ x_train = scale(x_train)[..., np.newaxis]
 x_test = scale(x_test)[..., np.newaxis]
 
 model = Autoencoder()
-model.compile(optimizer=tfa.optimizers.AdamW(learning_rate=1e-4, weight_decay=5e-5), loss=keras.losses.MeanAbsoluteError())
+model.compile(optimizer=tfa.optimizers.AdamW(learning_rate=1e-4, weight_decay=5e-5), loss=keras.losses.MeanSquaredError())
 model.fit(x_train, x_train, epochs=10, shuffle=True, validation_data=(x_test, x_test))
