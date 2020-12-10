@@ -11,10 +11,10 @@ class Autoencoder(keras.Model):
 
     def build(self, input_shape):
         self.encoder = keras.Sequential([
-            keras.layers.Conv2D(filters=16, kernel_size=(3, 3), strides=2, padding="SAME"),
+            keras.layers.Conv2D(filters=8, kernel_size=(3, 3), strides=2, padding="SAME"),
             keras.layers.BatchNormalization(),
             keras.layers.LeakyReLU(),
-            keras.layers.Conv2D(filters=8, kernel_size=(3, 3), strides=2, padding="SAME"),
+            keras.layers.Conv2D(filters=3, kernel_size=(3, 3), strides=2, padding="SAME"),
             keras.layers.BatchNormalization(),
             keras.layers.LeakyReLU(),
         ])
@@ -22,10 +22,7 @@ class Autoencoder(keras.Model):
             keras.layers.Conv2DTranspose(filters=8, kernel_size=(3, 3), strides=2, padding="SAME"),
             keras.layers.BatchNormalization(),
             keras.layers.LeakyReLU(),
-            keras.layers.Conv2DTranspose(filters=16, kernel_size=(3, 3), strides=2, padding="SAME"),
-            keras.layers.BatchNormalization(),
-            keras.layers.LeakyReLU(),
-            keras.layers.Conv2DTranspose(filters=1, kernel_size=(3, 3), strides=1, padding="SAME"),
+            keras.layers.Conv2DTranspose(filters=1, kernel_size=(3, 3), strides=2, padding="SAME"),
         ])
 
     def call(self, inputs):
