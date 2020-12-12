@@ -20,13 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cd9b98b-1111-45c3-a44e-6031d0965d16" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/myae.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/myae.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vae.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ae.py" beforeDir="false" afterPath="$PROJECT_DIR$/ae.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cae.py" beforeDir="false" afterPath="$PROJECT_DIR$/cae.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dae.py" beforeDir="false" afterPath="$PROJECT_DIR$/dae.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,10 +49,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/cae.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/vae.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.cae">
+  <component name="RunManager" selected="Python.vae">
     <configuration name="cae" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="myae" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -80,6 +76,9 @@
       <module name="myae" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="D:\anaconda3\envs\tf2\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -95,9 +94,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="vae" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="myae" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="D:\Anaconda3\envs\gan\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/vae.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.dae" />
       <item itemvalue="Python.cae" />
+      <item itemvalue="Python.vae" />
     </list>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
@@ -112,6 +131,8 @@
       <option name="presentableId" value="Default" />
       <updated>1607473595827</updated>
       <workItem from="1607598854404" duration="3436000" />
+      <workItem from="1607697583410" duration="3582000" />
+      <workItem from="1607739252497" duration="4672000" />
     </task>
     <servers />
   </component>
@@ -131,14 +152,16 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="136" y="0" width="1094" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607475112658">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="191" y="0" width="1094" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607700939840">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="136" y="0" width="1094" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1607475112658" />
-    <state x="462" y="122" key="FileChooserDialogImpl" timestamp="1607475110922">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="191" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607700939840" />
+    <state x="649" y="174" key="FileChooserDialogImpl" timestamp="1607700938097">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="462" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1607475110922" />
+    <state x="649" y="174" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607700938097" />
     <state x="257" y="10" key="SettingsEditor" timestamp="1607599458228">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

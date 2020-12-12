@@ -11,6 +11,7 @@ class ContractiveAutoencoder(keras.Model):
         self.lambda_ = lambda_
         super(ContractiveAutoencoder, self).__init__()
 
+    @tf.function
     def train_step(self, data):
         x, y = data
         with tf.GradientTape(persistent=True) as tape:
@@ -22,8 +23,7 @@ class ContractiveAutoencoder(keras.Model):
         self.compiled_metrics.update_state(y, decode)
         return {m.name: m.result() for m in self.metrics}
 
-    def compile(self, optimizer=None, loss=None, metrics=None, **kwargs):
-        super(ContractiveAutoencoder, self).compile(optimizer=optimizer, loss=loss, metrics=metrics, **kwargs)
+    def build(self, input_shape):
         self.encoder = keras.Sequential([
             keras.layers.Conv2D(filters=8, kernel_size=(3, 3), strides=2, padding="SAME"),
             keras.layers.BatchNormalization(),
@@ -38,6 +38,7 @@ class ContractiveAutoencoder(keras.Model):
             keras.layers.LeakyReLU(),
             keras.layers.Conv2DTranspose(filters=1, kernel_size=(3, 3), strides=2, padding="SAME"),
         ])
+        super(ContractiveAutoencoder, self).build(input_shape)
 
     def call(self, inputs):
         encode = self.encoder(inputs)
@@ -51,5 +52,6 @@ x_test = scale(x_test)[..., np.newaxis]
 
 model = ContractiveAutoencoder()
 model.compile(optimizer=tfa.optimizers.AdamW(learning_rate=1e-4, weight_decay=5e-5), loss=keras.losses.MeanSquaredError())
+model.build([])
 model.fit(x_train, x_train, epochs=10, shuffle=True, validation_data=(x_test, x_test))
 show(x_test, model(x_test).numpy())
